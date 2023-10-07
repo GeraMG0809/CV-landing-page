@@ -797,9 +797,9 @@ img{
     width: 100%;
     position: relative;
     height: 780px;
-    display: flex; /* Usar flexbox para centrar contenido */
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
 }
 
 
@@ -829,11 +829,13 @@ img{
 
 .atras{
     left: 2%;
-    top: 50%; /* Cambié esta línea */
-    transform: translateY(-50%); /* Centra verticalmente el botón */
+    top: 50%; 
+    transform: translateY(-50%); 
 }
 
 .adelante{
     right: 2%;
     top: calc(50% - 70px);
 }
+
+
