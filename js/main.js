@@ -1,37 +1,57 @@
-var imagenes = ['img/img1.jpg','img/img2.jpg','img/img3.jpg'],
-    cont = 0;
+var imagenes = ['img/img1.jpg', 'img/img2.jpg', 'img/img3.jpg'];
+var cont = 0;
+var interval;
 
+function carrusel(contenedor) {
+    var img = contenedor.querySelector('img');
 
-function carrusel(contenedor){
-    contenedor.addEventListener('click', e=>{
-        let atras = contenedor.querySelector('.atras'),
-            adelante = contenedor.querySelector('.adelante'),
-            img = contenedor.querySelector('img'),
-            tgt = e.target;
+    function cambiarImagen(direction) {
+        cont += direction;
 
-
-        if(tgt == atras){
-            if(cont>0){
-                img.src = imagenes[cont - 1];
-                cont--;
-            }else{
-                img.src = imagenes[imagenes.length - 1];
-                cont = imagenes.length - 1;
-            }
-        }else if(tgt == adelante){
-            if(cont < imagenes.length - 1){
-                img.src = imagenes[cont + 1];
-                cont++;
-            }else{
-                img.src = imagenes[0];
-                cont = 0;
-            }
+        if (cont < 0) {
+            cont = imagenes.length - 1;
+        } else if (cont >= imagenes.length) {
+            cont = 0;
         }
 
+        img.src = imagenes[cont];
+    }
+
+    function avanzar() {
+        cambiarImagen(1);
+    }
+
+    function retroceder() {
+        cambiarImagen(-1);
+    }
+
+    function startInterval() {
+        interval = setInterval(avanzar, 3000); // Cambia la imagen cada 3 segundos (3000 ms)
+    }
+
+    function stopInterval() {
+        clearInterval(interval);
+    }
+
+    contenedor.addEventListener('click', (e) => {
+        let tgt = e.target;
+
+        if (tgt.classList.contains('atras')) {
+            retroceder();
+        } else if (tgt.classList.contains('adelante')) {
+            avanzar();
+        }
+
+        // Reiniciar el intervalo
+        stopInterval();
+        startInterval();
     });
+
+    // Iniciar el desplazamiento automático
+    startInterval();
 }
 
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
     let contenedor = document.querySelector('.contenedor');
     carrusel(contenedor);
 });

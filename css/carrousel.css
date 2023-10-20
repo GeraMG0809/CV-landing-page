@@ -1,63 +1,87 @@
-*{
+* {
     margin: 0;
     padding: 0;
     outline: 0;
     box-sizing: border-box;
 }
 
-
-html{
-    font-family: arial, sans-serif; 
+html {
+    font-family: arial, sans-serif;
 }
 
-img{
+img {
     width: 40%;
     height: 40%;
-}    
+    max-width: 100%;
+    height: auto;
+    border: 10px solid #007bff; /* Agregar un borde azul de 4 píxeles alrededor de las imágenes */
+    box-sizing: border-box; /* Asegurarse de que el borde no aumente el tamaño de las imágenes */
+}
+
 
 .contenedor {
     width: 100%;
     position: relative;
     height: 780px;
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 
-
-.boton{
+.boton {
     font-size: 30px;
     width: 70px;
     height: 70px;
     line-height: 70px;
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.7);
-    text-align:  center;
+    background-color: #e9ecef;
+    text-align: center;
     font-weight: bold;
     position: absolute;
-    color: #fff;
-    box-shadow: 0 0 10px rgba(255,255,255,.6);
-    -webkit-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
+    color: #007bff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-
-.boton:hover{
+.boton:hover {
     cursor: pointer;
-    transform: scale(1.2,1.2);
+    transform: scale(1.2, 1.2);
 }
 
-.atras{
+.atras {
     left: 2%;
-    top: 50%; 
-    transform: translateY(-50%); 
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.adelante{
+.adelante {
     right: 2%;
     top: calc(50% - 70px);
 }
 
-
+/* Modificaciones para dispositivos móviles */
+@media (max-width: 768px) {
+    img {
+        width: 100%; /* Se adapta al ancho de la pantalla en dispositivos móviles */
+        height: auto;
+    }
+    
+    .boton {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        font-size: 40px;
+    }
+    
+    .atras {
+        left: 5%;
+    }
+    
+    .adelante {
+        right: 5%;
+    }
+}
