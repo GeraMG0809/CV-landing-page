@@ -26,7 +26,7 @@ function carrusel(contenedor) {
     }
 
     function startInterval() {
-        interval = setInterval(avanzar, 3000); // Cambia la imagen cada 3 segundos (3000 ms)
+        interval = setInterval(avanzar, 3000); 
     }
 
     function stopInterval() {
@@ -42,12 +42,12 @@ function carrusel(contenedor) {
             avanzar();
         }
 
-        // Reiniciar el intervalo
+        
         stopInterval();
         startInterval();
     });
 
-    // Iniciar el desplazamiento automático
+    
     startInterval();
 }
 

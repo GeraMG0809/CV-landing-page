@@ -14,8 +14,8 @@ img {
     height: 40%;
     max-width: 100%;
     height: auto;
-    border: 10px solid #007bff; /* Agregar un borde azul de 4 píxeles alrededor de las imágenes */
-    box-sizing: border-box; /* Asegurarse de que el borde no aumente el tamaño de las imágenes */
+    border: 10px solid #007bff; 
+    box-sizing: border-box; 
 }
 
 
